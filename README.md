@@ -19,7 +19,6 @@ Art Forge is a native C++/Metal generative art application for macOS. It renders
 
 <img width="3426" height="1956" alt="SCR-20260622-otst" src="https://github.com/user-attachments/assets/a9e71ac0-40b4-479e-bdec-0a6ad3b4f999" />
 
-
 ## Build
 
 ```sh
@@ -28,6 +27,16 @@ cmake --build build
 open "build/Art Forge.app"
 ```
 
+## Tests
+
+```sh
+cmake -S . -B build
+cmake --build build
+ctest --test-dir build --output-on-failure
+```
+
+The test suite covers engine defaults, preset transition stability, experimental feature flags, shader uniform layout, shader source guards, and Metal runtime shader compilation.
+
 ## Current Controls
 
 - The app opens with a splash screen and in-app main menu over the live canvas.
@@ -35,11 +44,14 @@ open "build/Art Forge.app"
 - `File > Export PNG...` saves a high-resolution still.
 - `Composition > Presets` loads curated looks.
 - Preset changes morph smoothly instead of snapping between scenes.
+- Presets now use subtle procedural backgrounds, including deep space with stars, nebula haze, aurora-like structures, shooting stars, mist, silk dawn, ocean, and ember haze environments.
 - `Composition > Randomize` creates a fresh parameter set.
 - `Composition > Mutate` nudges the current look without replacing it.
 - `Composition > Particle Patterns` switches the GPU particles between flow weave, orbital bloom, Lissajous ribbons, rose mandala, spiral galaxy, vortex knot paths, and projected 3D forms including torus knots, helix columns, sphere lattices, and Mobius ribbons.
+- `Composition > Drone Mode` enters a first-person drone inside the particle field. Use `W/A/S/D` for thrust, mouse movement to steer, `Space` or `E` to rise, `Q` or `C` to descend, click to fire the laser, and `Esc` to exit.
+- Laser shots light up the beam path, scatter nearby particles into an explosion chunk, and the HUD tracks shots, chunks, and particle hits for the current session.
 - Move the mouse over the canvas to push, swirl, brighten, and slightly enlarge nearby particles.
-- The top-right HUD shows FPS, frame time, particle density, preview scale, active pattern, mouse state, and audio-reactive state.
+- The top-right HUD shows FPS, frame time, particle density, preview scale, active pattern, drone state, mouse state, and audio-reactive state.
 - `Experimental` contains advanced toggles, including high-density particles, fluid swirl, reaction-diffusion fields, opt-in audio-reactive modulation, half-resolution preview, and MetalFX spatial upscaling when supported by the Mac.
 
 ## Notes
