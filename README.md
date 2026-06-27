@@ -2,6 +2,9 @@
 
 Art Forge is a native C++/Metal generative art application for macOS. It renders dense procedural compositions from GPU particles, flow fields, strange-attractor-style motion, procedural shader layers, mutation controls, presets, and experimental renderer options.
 
+<img width="2500" height="1592" alt="image" src="https://github.com/user-attachments/assets/bd012121-379a-4235-a8fa-601f23a2eb67" />
+
+
 <img width="3394" height="1908" alt="SCR-20260626-fefo" src="https://github.com/user-attachments/assets/9a83d8e1-b357-4788-9b09-2d18f0b76e9c" />
 
 
